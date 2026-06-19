@@ -7,7 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 const projects = [
   {
     client: "Segilola Operating Resources Limited",
-    logo: "/images/partner26.jpeg",
+    logo: "/images/partner26.png",
     deliverables: [
       "Data centre construction",
       "Disaster Recovery Centre",

@@ -159,8 +159,8 @@ export default function Projects() {
             Trusted By Industry Leaders
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            We have had the privilege of working with some of the most
-            innovative and successful companies.
+            We Provided Valuable services for some of the most innovative and
+            successful companies.
           </p>
         </div>
 

@@ -51,7 +51,7 @@ const projects = [
     client: "Microsoft Nigeria",
     logo: "/images/partner29.png",
     deliverables: ["Enterprise Wi-Fi redesign"],
-    bg: "bg-brown-500",
+    bg: "bg-red-700",
   },
 ];
 

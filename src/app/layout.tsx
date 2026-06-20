@@ -11,6 +11,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jts.com.ng"),
   title: "Joppa Technologies | ICT & Technology Solutions Company in Lagos",
   description:
     "Joppa Technologies delivers innovative ICT solutions, data center infrastructure, security systems and managed technology services across Africa.",
@@ -22,6 +23,21 @@ export const metadata: Metadata = {
     siteName: "Joppa Technologies",
     locale: "en_NG",
     type: "website",
+    images: [
+      {
+        url: "/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Joppa Technologies Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Joppa Technologies | ICT & Technology Solutions Company in Lagos",
+    description:
+      "Delivering innovative ICT, Data Centre, Security, Infrastructure and Managed Services across Africa since 2011.",
+    images: ["/android-chrome-512x512.png"],
   },
   icons: {
     icon: [
@@ -39,6 +55,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png" }],
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -46,12 +63,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Joppa Technologies",
+    url: "https://jts.com.ng",
+    logo: "https://jts.com.ng/android-chrome-512x512.png",
+    image: "https://jts.com.ng/images/jts-logo.jpeg",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+2348023254954",
+      contactType: "customer service",
+      areaServed: "NG",
+      availableLanguage: "English",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "3 Nurudeen Dali Street, Off Sangotedo Road",
+      addressLocality: "Ogombo",
+      addressRegion: "Lagos",
+      addressCountry: "NG",
+    },
+  };
+
+  const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Joppa Technology Services Limited",
     image: "https://jts.com.ng/images/jts-logo.jpeg",
-    "@id": "",
+    "@id": "https://jts.com.ng",
     url: "https://jts.com.ng",
     telephone: "+2348023254954",
     address: {
@@ -68,7 +108,11 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <Navbar />
         <main className="flex-grow pt-24">{children}</main>

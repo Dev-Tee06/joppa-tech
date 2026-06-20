@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Server, ShieldAlert, Waves, ShieldCheck, Network, Code2, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { Server, ShieldAlert, Waves, ShieldCheck, Network, Code2, CheckCircle2, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -143,6 +144,42 @@ export default function Services() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 relative z-10 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative rounded-3xl bg-gradient-to-br from-neutral-900 via-primary-900 to-neutral-900 p-12 md:p-16 text-center overflow-hidden"
+          >
+            {/* Decorative glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary-500/15 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl" />
+
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Start Your Digital Transformation{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-accent-300">
+                  Today
+                </span>
+              </h2>
+              <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Partner with our experts to build scalable, secure, and innovative technology solutions tailored to your business needs.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold rounded-full hover:from-primary-400 hover:to-accent-400 transition-all shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transform hover:-translate-y-1 text-lg"
+              >
+                Get Started
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 

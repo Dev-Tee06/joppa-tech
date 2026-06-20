@@ -108,14 +108,14 @@ export default function Projects() {
                 {/* Logo Top Right */}
                 <div className="absolute top-6 right-6">
                   <div
-                    className={`w-14 h-14 rounded-full overflow-hidden flex items-center justify-center p-2 shadow-sm ${project.bg}`}
+                    className="w-20 h-20 rounded-2xl overflow-hidden flex items-center justify-center p-3 bg-white shadow-md border border-slate-100 group-hover:shadow-lg group-hover:border-primary-200 group-hover:scale-105 transition-all duration-300"
                   >
-                    <div className="relative w-full h-full bg-white rounded-full overflow-hidden">
+                    <div className="relative w-full h-full">
                       <Image
                         src={project.logo}
                         alt={`${project.client} Logo`}
                         fill
-                        className="object-contain p-1.5"
+                        className="object-contain"
                       />
                     </div>
                   </div>

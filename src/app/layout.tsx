@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/android-chrome-512x512.png",
-        width: 512,
-        height: 512,
+        url: "https://jts.com.ng/images/jts-logo.jpeg",
+        width: 1200,
+        height: 630,
         alt: "Joppa Technologies Logo",
       },
     ],
@@ -37,19 +37,19 @@ export const metadata: Metadata = {
     title: "Joppa Technologies | ICT & Technology Solutions Company in Lagos",
     description:
       "Delivering innovative ICT, Data Centre, Security, Infrastructure and Managed Services across Africa since 2011.",
-    images: ["/android-chrome-512x512.png"],
+    images: ["https://jts.com.ng/images/jts-logo.jpeg"],
   },
   icons: {
     icon: [
-      { url: "/icon.jpg" },
+      { url: "/favicon.ico", sizes: "any" },
       {
-        url: "/android-chrome-192x192.png",
-        sizes: "192x192",
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/android-chrome-512x512.png",
-        sizes: "512x512",
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
         type: "image/png",
       },
     ],
@@ -68,8 +68,13 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Joppa Technologies",
     url: "https://jts.com.ng",
-    logo: "https://jts.com.ng/android-chrome-512x512.png",
+    logo: "https://jts.com.ng/images/jts-logo.jpeg",
     image: "https://jts.com.ng/images/jts-logo.jpeg",
+    sameAs: [
+      "https://facebook.com/yourpage",
+      "https://linkedin.com/company/yourpage",
+      "https://instagram.com/yourpage",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+2348023254954",

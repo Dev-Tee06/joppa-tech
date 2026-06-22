@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-3 md:px-6">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-20 md:h-28">
           {/* Logo Section */}
           <Link
             href="/"
@@ -37,12 +37,12 @@ export default function Navbar() {
               flex-1
               min-w-0
               gap-2
-              md:gap-3
+              md:gap-4
               -ml-2
             "
           >
-            {/* Logo */}
-            <div className="relative flex-shrink-0 w-14 h-14 md:w-24 md:h-24">
+            {/* Increased Logo Size */}
+            <div className="relative flex-shrink-0 w-20 h-20 md:w-32 md:h-32">
               <Image
                 src="/images/jts-logo.jpeg"
                 alt="JTS Logo"
@@ -57,7 +57,7 @@ export default function Navbar() {
               <span
                 className="
                   font-bold
-                  text-[15px]
+                  text-[10px]
                   sm:text-[11px]
                   md:text-lg
                   text-slate-900
@@ -84,7 +84,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 ml-8">
             {navLinks.map((link) => (
               <Link
@@ -143,21 +143,10 @@ export default function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{
-                opacity: 0,
-                x: "100%",
-              }}
-              animate={{
-                opacity: 1,
-                x: 0,
-              }}
-              exit={{
-                opacity: 0,
-                x: "100%",
-              }}
-              transition={{
-                duration: 0.25,
-              }}
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ duration: 0.25 }}
               className="
                 fixed
                 inset-0

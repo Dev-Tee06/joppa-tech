@@ -17,119 +17,191 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
   return (
-    <header
-      className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
-      )}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 z-50">
-          <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-lg">
-            <Image
-              src="/images/jts-logo.jpeg"
-              alt="JTS Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <span className={clsx(
-            "font-bold text-xl md:text-2xl tracking-tight transition-colors duration-300",
-            isScrolled ? "text-accent-700" : "text-slate-900"
-          )}>
-            Joppa Technologies
-          </span>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <div className="container mx-auto px-3 md:px-6">
+        <div className="flex items-center justify-between h-20 md:h-24">
+          {/* Logo Section */}
+          <Link
+            href="/"
+            className="
+              flex
+              items-center
+              flex-1
+              min-w-0
+              gap-2
+              md:gap-3
+              -ml-2
+            "
+          >
+            {/* Logo */}
+            <div className="relative flex-shrink-0 w-14 h-14 md:w-24 md:h-24">
+              <Image
+                src="/images/jts-logo.jpeg"
+                alt="JTS Logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={clsx(
-                "text-sm font-medium transition-colors hover:text-primary-600 relative py-2",
-                pathname === link.href
-                  ? "text-primary-600"
-                  : isScrolled ? "text-slate-700" : "text-slate-800"
-              )}
-            >
-              {link.name}
-              {pathname === link.href && (
-                <motion.div
-                  layoutId="navbar-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-            </Link>
-          ))}
-        </nav>
+            {/* Company Text */}
+            <div className="flex flex-col justify-center leading-tight">
+              <span
+                className="
+                  font-bold
+                  text-[15px]
+                  sm:text-[11px]
+                  md:text-lg
+                  text-slate-900
+                  whitespace-normal
+                  break-words
+                  max-w-[150px]
+                  md:max-w-none
+                "
+              >
+                Joppa Technology Services Limited
+              </span>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden z-50 p-2 -mr-2 text-slate-800"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle Menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className={clsx("w-6 h-6", !isScrolled && "text-slate-900")} />
-          )}
-        </button>
+              <span
+                className="
+                  text-[9px]
+                  sm:text-[10px]
+                  md:text-xs
+                  text-slate-500
+                  mt-1
+                "
+              >
+                RC 972862
+              </span>
+            </div>
+          </Link>
 
-        {/* Mobile Navigation Drawer */}
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8 ml-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={clsx(
+                  "text-sm font-medium transition-colors hover:text-primary-600 relative py-2",
+                  pathname === link.href
+                    ? "text-primary-600"
+                    : "text-slate-700",
+                )}
+              >
+                {link.name}
+
+                {pathname === link.href && (
+                  <motion.div
+                    layoutId="navbar-indicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-600"
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
+            className="
+              md:hidden
+              flex-shrink-0
+              ml-2
+              p-2
+              rounded-lg
+              text-slate-800
+              hover:bg-slate-100
+              transition
+              z-50
+            "
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-7 h-7" />
+            ) : (
+              <Menu className="w-7 h-7" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Drawer */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-0 z-40 bg-white md:hidden pt-24 px-6 pb-6 flex flex-col h-screen"
+              initial={{
+                opacity: 0,
+                x: "100%",
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+              }}
+              exit={{
+                opacity: 0,
+                x: "100%",
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="
+                fixed
+                inset-0
+                bg-white
+                z-40
+                pt-28
+                px-6
+                pb-6
+                md:hidden
+                flex
+                flex-col
+              "
             >
-              <nav className="flex flex-col gap-6 text-lg">
+              <nav className="flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     className={clsx(
-                      "font-semibold pb-2 border-b border-slate-100 transition-colors",
-                      pathname === link.href ? "text-primary-600" : "text-slate-800"
+                      "text-lg font-medium border-b border-slate-100 pb-3",
+                      pathname === link.href
+                        ? "text-primary-600"
+                        : "text-slate-800",
                     )}
                   >
                     {link.name}
                   </Link>
                 ))}
               </nav>
-              <div className="mt-auto pb-8">
+
+              <div className="mt-auto pb-6">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center w-full py-4 bg-primary-600 text-white font-semibold rounded-xl"
+                  className="
+                    w-full
+                    flex
+                    justify-center
+                    items-center
+                    bg-primary-600
+                    text-white
+                    rounded-xl
+                    py-4
+                    font-semibold
+                  "
                 >
                   Request Consultation
                 </Link>

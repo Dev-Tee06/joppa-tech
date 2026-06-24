@@ -12,15 +12,17 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jts.com.ng"),
-  title: "Joppa Technologies | ICT & Technology Solutions Company in Lagos",
+  title:
+    "Joppa Technology Services Limited | ICT & Technology Solutions Company in Lagos",
   description:
-    "Joppa Technologies delivers innovative ICT solutions, data center infrastructure, security systems and managed technology services across Africa.",
+    "Joppa Technology Services Limited delivers innovative ICT solutions, data center infrastructure, security systems and managed technology services across Africa.",
   openGraph: {
-    title: "Joppa Technologies | ICT & Technology Solutions Company in Lagos",
+    title:
+      "Joppa Technology Services Limited | ICT & Technology Solutions Company in Lagos",
     description:
       "Delivering innovative ICT, Data Centre, Security, Infrastructure and Managed Services across Africa since 2011.",
     url: "https://jts.com.ng",
-    siteName: "Joppa Technologies",
+    siteName: "Joppa Technology Services Limited",
     locale: "en_NG",
     type: "website",
     images: [
@@ -34,7 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Joppa Technologies | ICT & Technology Solutions Company in Lagos",
+    title:
+      "Joppa Technology Services Limited | ICT & Technology Solutions Company in Lagos",
     description:
       "Delivering innovative ICT, Data Centre, Security, Infrastructure and Managed Services across Africa since 2011.",
     images: ["https://jts.com.ng/images/jts-logo.jpeg"],
@@ -66,7 +69,7 @@ export default function RootLayout({
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Joppa Technologies",
+    name: "Joppa Technology Services Limited",
     url: "https://jts.com.ng",
     logo: "https://jts.com.ng/images/jts-logo.jpeg",
     image: "https://jts.com.ng/images/jts-logo.jpeg",
@@ -113,11 +116,15 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
+          }}
         />
         <Navbar />
         <main className="flex-grow pt-24">{children}</main>

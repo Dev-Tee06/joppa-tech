@@ -31,23 +31,33 @@ export default function Map() {
     className: "custom-leaflet-icon",
     html: renderToString(
       <div className="text-primary-600 drop-shadow-md -translate-y-1/2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-          <circle cx="12" cy="10" r="3" fill="white"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="3" fill="white" />
         </svg>
-      </div>
+      </div>,
     ),
     iconSize: [36, 36],
     iconAnchor: [18, 36],
-    popupAnchor: [0, -36]
+    popupAnchor: [0, -36],
   });
 
   return (
     <div className="w-full h-full min-h-[400px] z-0">
-      <MapContainer 
-        center={position} 
-        zoom={15} 
-        scrollWheelZoom={false} 
+      <MapContainer
+        center={position}
+        zoom={15}
+        scrollWheelZoom={false}
         className="w-full h-full"
         style={{ height: "100%", width: "100%", minHeight: "400px" }}
       >
@@ -58,10 +68,14 @@ export default function Map() {
         <Marker position={position} icon={customIcon}>
           <Popup className="rounded-xl overflow-hidden font-sans">
             <div className="p-1">
-              <h3 className="font-bold text-slate-800 text-sm mb-1">Joppa Technologies</h3>
+              <h3 className="font-bold text-slate-800 text-sm mb-1">
+                Joppa Technology Services Limited
+              </h3>
               <p className="text-slate-600 text-xs">
-                3 Nurudeen Dali Street<br />
-                Off Sangotedo Road, Ogombo<br />
+                3 Nurudeen Dali Street
+                <br />
+                Off Sangotedo Road, Ogombo
+                <br />
                 Lagos, Nigeria
               </p>
             </div>

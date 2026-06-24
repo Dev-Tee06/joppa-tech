@@ -44,7 +44,7 @@ export default function Navbar() {
             {/* Increased Logo Size */}
             <div className="relative flex-shrink-0 w-20 h-20 md:w-32 md:h-32">
               <Image
-                src="/images/jts-logo.jpeg"
+                src="/images/jts-logo.png"
                 alt="JTS Logo"
                 fill
                 priority
